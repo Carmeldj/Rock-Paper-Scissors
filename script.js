@@ -29,6 +29,7 @@ const btn2 = document.querySelector(".bt2");
 const btn3 = document.querySelector(".bt3");
 const div = document.querySelector(".result");
 const res = document.querySelector(".para");
+const reset = document.querySelector(".reset");
 let PlWins = 0;
 let CpWins = 0;
 
@@ -44,7 +45,9 @@ document.addEventListener("click", function (event) {
         } else if (round.includes("lose")) {
           CpWins += 1;
         }
+
         div.textContent = round + " " + PlWins + " : " + CpWins;
+        res.textContent = checkWin(PlWins, CpWins);
         break;
       case "bt2":
         round = playRound("paper");
@@ -54,6 +57,7 @@ document.addEventListener("click", function (event) {
           CpWins += 1;
         }
         div.textContent = round + " " + PlWins + " : " + CpWins;
+        res.textContent = checkWin(PlWins, CpWins);
         break;
       case "bt3":
         round = playRound("scissors");
@@ -63,11 +67,16 @@ document.addEventListener("click", function (event) {
           CpWins += 1;
         }
         div.textContent = round + " " + PlWins + " : " + CpWins;
+        res.textContent = checkWin(PlWins, CpWins);
         break;
+      case "reset":
+        div.textContent = "0 : 0";
+        PlWins = 0;
+        CpWins = 0;
       default:
         break;
     }
-  } else if (PlWins == 5) {
+  } /*else if (PlWins == 5) {
     res.textContent = "You win this game";
     // console.log("you Win the game");
     PlWins = 0;
@@ -79,10 +88,19 @@ document.addEventListener("click", function (event) {
     PlWins = 0;
     CpWins = 0;
     //console.log("Wanna play another game ?");
-  }
+  }*/
 });
-res.textContent = "";
-
+const checkWin = function (a, b) {
+  if (a == 5) {
+    PlWins = 0;
+    CpWins = 0;
+    return "You Win this game";
+  } else if (b == 5) {
+    PlWins = 0;
+    CpWins = 0;
+    return "You lose this game";
+  }
+};
 //btn1.addEventListener("click", function () {
 /*p = "rock";
     const rs = playRound(p);
