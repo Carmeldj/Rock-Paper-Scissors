@@ -30,8 +30,12 @@ const btn3 = document.querySelector(".bt3");
 const div = document.querySelector(".result");
 const res = document.querySelector(".para");
 const reset = document.querySelector(".reset");
+const scpl = document.querySelector(".scorePlayer");
+const sccp = document.querySelector(".scoreComputer");
 let PlWins = 0;
 let CpWins = 0;
+scpl.textContent = PlWins;
+sccp.textContent = CpWins;
 
 document.addEventListener("click", function (event) {
   // check which link was clicked using the event.target.id property
@@ -45,8 +49,9 @@ document.addEventListener("click", function (event) {
         } else if (round.includes("lose")) {
           CpWins += 1;
         }
-
-        div.textContent = round + " " + PlWins + " : " + CpWins;
+        scpl.textContent = PlWins;
+        sccp.textContent = CpWins;
+        div.textContent = round;
         res.textContent = checkWin(PlWins, CpWins);
         break;
       case "bt2":
@@ -56,7 +61,9 @@ document.addEventListener("click", function (event) {
         } else if (round.includes("lose")) {
           CpWins += 1;
         }
-        div.textContent = round + " " + PlWins + " : " + CpWins;
+        scpl.textContent = PlWins;
+        sccp.textContent = CpWins;
+        div.textContent = round;
         res.textContent = checkWin(PlWins, CpWins);
         break;
       case "bt3":
@@ -66,29 +73,23 @@ document.addEventListener("click", function (event) {
         } else if (round.includes("lose")) {
           CpWins += 1;
         }
-        div.textContent = round + " " + PlWins + " : " + CpWins;
+        scpl.textContent = PlWins;
+        sccp.textContent = CpWins;
+        div.textContent = round;
         res.textContent = checkWin(PlWins, CpWins);
         break;
       case "reset":
-        div.textContent = "0 : 0";
         PlWins = 0;
         CpWins = 0;
+        scpl.textContent = PlWins;
+        sccp.textContent = CpWins;
+        res.textContent = "";
+        div.textContent = "";
+
       default:
         break;
     }
-  } /*else if (PlWins == 5) {
-    res.textContent = "You win this game";
-    // console.log("you Win the game");
-    PlWins = 0;
-    CpWins = 0;
-    //console.log("Wanna play another game ?");
-  } else if (CpWins == 5) {
-    res.textContent = "You lose this game";
-    //console.log("you Lose the game");
-    PlWins = 0;
-    CpWins = 0;
-    //console.log("Wanna play another game ?");
-  }*/
+  }
 });
 const checkWin = function (a, b) {
   if (a == 5) {
@@ -101,42 +102,3 @@ const checkWin = function (a, b) {
     return "You lose this game";
   }
 };
-//btn1.addEventListener("click", function () {
-/*p = "rock";
-    const rs = playRound(p);
-    div.textContent = rs;
-    if (rs.includes("win")) {
-      winP = winP + 1;
-    } else if (rs.includes("lose")) {
-      winC = winC + 1;
-    }
-    res.textContent = winP + " " + winC;
-    console.log(winC);
-    console.log(winP);
-});*/
-/*btn2.addEventListener("click", function () {
-  p = "paper";
-  const rs = playRound(p);
-  div.textContent = rs;
-  if (rs.includes("win")) {
-    winP = winP + 1;
-  } else if (rs.includes("lose")) {
-    winC = winC + 1;
-  }
-  res.textContent = winP + " " + winC;
-  console.log(winC);
-  console.log(winP);
-});
-btn3.addEventListener("click", function () {
-  p = "scissors";
-  const rs = playRound(p);
-  div.textContent = rs;
-  if (rs.includes("win")) {
-    winP = winP + 1;
-  } else if (rs.includes("lose")) {
-    winC = winC + 1;
-  }
-  res.textContent = winP + " " + winC;
-  console.log(winC);
-  console.log(winP);
-});*/

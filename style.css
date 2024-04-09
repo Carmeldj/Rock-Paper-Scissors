@@ -3,33 +3,62 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: #2a0357;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 .container {
-  border: 5px solid red;
   padding: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #fff;
 }
 
 .bt button,
 .reset {
   padding: 20px;
-  border-radius: 80%;
   box-shadow: 0;
+  width: 150px;
 }
 
 .bt {
   display: flex;
   margin-bottom: 30px;
-  gap: 20px;
-  border: 5px solid lightblue;
+  gap: 60px;
   padding: 30px;
   justify-content: center;
 }
 
 h1 {
-  border: 5px solid violet;
+  font-size: 2.5rem;
+}
+
+.bt1,
+.bt2,
+.bt3 {
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bt1 {
+  background-color: #e03809;
+}
+
+.bt2 {
+  background-color: #0983e0;
+}
+
+.bt3 {
+  background-color: #09e066;
 }
 
 .result {
@@ -40,4 +69,24 @@ h1 {
 .para {
   font-size: 2em;
   text-align: center;
+}
+
+.scorePlayer {
+  font-size: 50px;
+}
+.scoreComputer {
+  font-size: 50px;
+}
+
+.score {
+  display: flex;
+  gap: 20px;
+}
+
+.cp,
+.pl {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  align-items: center;
 }
